@@ -1,0 +1,113 @@
+:root {
+  --color-bisque: bisque;
+  --color-darkbisque: rgb(251, 210, 160);
+  --color-black: black;
+  --border: 1px solid rgb(68, 68, 68);
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bisque);
+}
+.board {
+  height: 6em;
+  border-radius: 5px;
+  background-color: var(--color-darkbisque);
+  max-width: 30rem;
+  margin: auto;
+}
+.header-text {
+  text-align: center;
+  letter-spacing: 0.1em;
+  position: relative;
+}
+span {
+  font-weight: bold;
+}
+.header-text:after {
+  content: "";
+  position: absolute;
+  left: 5.5em;
+  bottom: -5px;
+  width: 3em;
+  height: 2px;
+  background-color: red;
+}
+.search-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin: 1em;
+}
+.search-input {
+  width: 15rem;
+  background: none;
+  font-weight: bold;
+  font-size: 1em;
+  border: none;
+  border-bottom: var(--border);
+  outline: none;
+}
+.btn {
+  border-radius: 5px;
+  padding: 0.2rem;
+  font-weight: bold;
+  font-size: 1em;
+  background: none;
+}
+.btn:active {
+  background: rgb(247, 144, 17);
+}
+.shape1 {
+  position: fixed;
+  width: 10rem;
+  height: 10em;
+  top: 4em;
+  right: 6em;
+  border-radius: 50%;
+  background-color: var(--color-darkbisque);
+  z-index: -1000;
+}
+.shape2 {
+  position: fixed;
+  width: 10rem;
+  height: 10em;
+  top: -4em;
+  left: -6em;
+  border-radius: 50%;
+  background-color: var(--color-darkbisque);
+  z-index: -1000;
+}
+.main {
+  margin-top: 0;
+}
+.result {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  margin: 1em;
+}
+img {
+  width: 20rem;
+}
+
+.card {
+  width: min-content;
+}
+@media screen and (max-width: 820px) {
+  .result {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 420px) {
+  .result {
+    grid-template-columns: 1fr;
+  }
+  .board {
+    max-width: 21em;
+  }
+}
