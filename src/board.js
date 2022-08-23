@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import searchIcon from "./images/search.png";
 export default function Board() {
   const [movieName, setmovieName] = useState("");
   const [allmovies, setallmovies] = useState([]);
@@ -17,34 +17,28 @@ export default function Board() {
 
   return (
     <main>
-      <div className="shape1"></div>
-      <div className="board">
-        <h1 className="header-text">Search For Movie</h1>
-        <div className="search-container">
-          <input
-            type="search"
-            className="search-input"
-            placeholder="i.e Harry potter"
-            value={movieName}
-            onChange={(e) => {
-              setmovieName(e.target.value);
-            }}
-          />
-          <button type="button" className="btn" onClick={handleClick}>
-            search
-          </button>
-        </div>
+      <h1 className="header-text">Movie World</h1>
+      <div className="search">
+        <input
+          type="search"
+          className="search-input"
+          placeholder="i.e Harry potter"
+          value={movieName}
+          onChange={(e) => {
+            setmovieName(e.target.value);
+          }}
+        />
+
+        <img src={searchIcon} onClick={handleClick} alt="" />
       </div>
 
-      <div className="result">
-        {allmovies.map((page) => (
-          <div className="card">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${page.poster_path}`}
-              className="img"
-              alt=""
-            />
-
+      {allmovies.map((page) => (
+        <div className="container">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${page.poster_path}`}
+            alt=""
+          />
+          <div className="text-field">
             <h4>Release date: {page.release_date}</h4>
             <h4>popularity: {page.popularity}</h4>
 
@@ -52,10 +46,8 @@ export default function Board() {
               <span>Over view:</span> {page.overview}
             </p>
           </div>
-        ))}
-      </div>
-
-      <div className="shape2"></div>
+        </div>
+      ))}
     </main>
   );
 }
